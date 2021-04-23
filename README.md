@@ -13,7 +13,8 @@ https://www.anaconda.com/distribution/#download-section
 
 `conda create -n pythonocct -c dlr-sc -c pythonocc pythonocc-core=7.4.0rc1`
 
-![](https://i.imgur.com/5TfqNgv.png)
+![](https://i.imgur.com/jFsMFPy.png)
+
 
 
 ## 3. Start environment
@@ -61,8 +62,8 @@ select the 3d model in 3dmodel/3dfile
 
 
 ## Future function
-**Big file case:**
-suggest to use x3dom render and run in the background (multi threads) and after finish renderting, embed the iframe to the UI
+**big file size case:**
+suggest to use x3dom render and run in the background (multi threads) and after finish renderting, embed the iframe to the UI.
 
 
 ## Reference
