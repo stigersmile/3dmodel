@@ -7,13 +7,17 @@
 ## 1. Install anaconda
 https://www.anaconda.com/distribution/#download-section
 
-## 2. Create environment
+## 2. Create environment and download pythonocc 
 
 + Open Anaconda Prompt and input command
 
 `conda create -n pythonocct -c dlr-sc -c pythonocc pythonocc-core=7.4.0rc1`
 
 ![](https://i.imgur.com/jFsMFPy.png)
+
+install all the library
+
+![](https://i.imgur.com/CxgWv9H.png)
 
 
 
