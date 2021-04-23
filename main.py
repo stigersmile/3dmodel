@@ -19,15 +19,6 @@ from OCC.Extend.TopologyUtils import TopologyExplorer
 from OCC.Display.WebGl import x3dom_renderer
 
 
-# def loadingAnimation(process) :
-#     while process.isAlive() :
-#         chars = "/—\|" 
-#         for char in chars:
-#             sys.stdout.write('\r'+'loading '+char)
-#             time.sleep(.1)
-#             sys.stdout.flush()
-
-
 
 def get_path(wildcard):
     app = wx.App(None)
@@ -42,8 +33,8 @@ def get_path(wildcard):
 
 
 def upload_IGES_file(event=None):
-    print("iges")
-    path_iges = get_path("IGES files (*.iges)|*.iges|IGS files (*.igs)|*.igs")
+    print("load iges file")
+    path_iges = get_path("IGS files (*.igs)|*.igs|IGES files (*.iges)|*.iges")
     if path_iges ==  None:
         print("none file")
         return
@@ -54,8 +45,8 @@ def upload_IGES_file(event=None):
 
 
 def Upload_STEP_file(event=None):
-    print("step")
-    path_step = get_path("STEP files (*.step)|*.step|STP files (*.stp)|*.stp")
+    print("load step file")
+    path_step = get_path("STP files (*.stp)|*.stp|STEP files (*.step)|*.step")
   
     if path_step ==  None:
         print("none file")
@@ -66,9 +57,9 @@ def Upload_STEP_file(event=None):
         display.DisplayShape(shapes, update=True)
 
 
-def upload_IGES_bigFile(event=None):
+def upload_IGES_Web(event=None):
     print("big iges file")
-    path_iges = get_path("IGES files (*.iges)|*.iges|IGS files (*.igs)|*.igs")
+    path_iges = get_path("IGS files (*.igs)|*.igs|IGES files (*.iges)|*.iges")
     if path_iges ==  None:
         print("none file")
         return
@@ -80,9 +71,10 @@ def upload_IGES_bigFile(event=None):
         my_renderer.DisplayShape(shapes)
         my_renderer.render(open_webbrowser=True)
 
-def upload_STEP_bigFile(event=None):
+
+def upload_STEP_Web(event=None):
     print("big step file")
-    path_step = get_path("STEP files (*.step)|*.step|STP files (*.stp)|*.stp")
+    path_step = get_path("STP files (*.stp)|*.stp|STEP files (*.step)|*.step")
     if path_step ==  None:
         print("none file")
         return
@@ -94,18 +86,20 @@ def upload_STEP_bigFile(event=None):
         my_renderer.DisplayShape(shape)
         my_renderer.render( open_webbrowser=True)
 
-        
+# def messageBox(event=None):
+#     app = wx.App()
+#     wx.MessageDialog(None, 'Start to upload', 'Notice', wx.OK | wx.ICON_INFORMATION).ShowModal()
+#     app.MainLoop()
+
 def exit(event=None):
     sys.exit()
 
-
 if __name__ == '__main__':
-    # display, start_display, add_menu, add_function_to_menu = init_display("qt-pyqt5")
     display, start_display, add_menu, add_function_to_menu = init_display("wx")
     add_menu('File')
     add_function_to_menu('File', upload_IGES_file )
     add_function_to_menu('File', Upload_STEP_file )
-    add_function_to_menu('File', upload_IGES_bigFile)
-    add_function_to_menu('File', upload_STEP_bigFile)
+    # add_function_to_menu('File', upload_IGES_Web)
+    # add_function_to_menu('File', upload_STEP_Web)
     add_function_to_menu('File', exit )
     start_display()
